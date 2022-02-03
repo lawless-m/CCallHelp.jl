@@ -53,6 +53,18 @@ function vec_string_from_ptr(ptr::Ptr{Ptr{Cuchar}}; free=true)
     strings
 end
 
+"""
+ untested
+
+"""
+function vec_from_ptr(ptr, type, n)
+    v = Vector{type}(undef, n)
+    for i in 1:n
+        v[i] = unsafe_load(ptr, n)
+    end
+    v
+end
+
 
 ###
 end
